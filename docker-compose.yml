@@ -1,16 +1,25 @@
 version: '3'
 services:
   redis:
-    image: redis
+    image: redis:alpine
     container_name: cache
     expose:
       - 6379
   app:
     build: .
+    restart: always
+    volumes:
+      - ./:/usr/app
     links:
       - redis
+      - mongo
     environment:
       - REDIS_URL=redis://cache
       - PROCESS_COUNT:1
     ports:
-      - "4001:8081"
+      - "4001:4001"
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
