@@ -10,7 +10,7 @@ const client = createClient.createClient({
 
 exports.list = function (req, res, next) {
     console.log(req.query.address)
-    Tranaction.find({ $or: [{ 'to': req.query.address }, { 'from': req.query.address }] },
+    Tranaction.find({ $or: [{ 'to': {$regex: req.query.address, $options: 'i'} }, { 'from':  {$regex: req.query.address, $options: 'i'}}] },
         function (err, docs) {
             if (docs.length < 1){
                 transactionCrawler.startCrawl(Number(req.query.start), req.query.address)

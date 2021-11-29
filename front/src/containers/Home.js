@@ -7,22 +7,22 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 
 
 const columns = [
-    {
-        dataField: "to",
-        text: "To",
-        sort: true,
-    },
-    {
-        dataField: "from",
-        text: "From",
-        sort: true,
-    },
-    {
-        dataField: "value",
-        text: "Value",
-        sort: true,
-    },
-
+  {
+      dataField: "to",
+      text: "To",
+      sort: true,
+  },
+  {
+      dataField: "from",
+      text: "From",
+      sort: true,
+  },
+  {
+      dataField: "value",
+      text: "Value",
+      sort: true,
+  },
+  
 ];
 
 
@@ -45,7 +45,7 @@ export default function Login() {
 
 
         } catch (e) {
-            //alert(e.message);
+            alert(e.message);
         }
     }
 
@@ -59,7 +59,7 @@ export default function Login() {
                         autoFocus
                         type="text"
                         value={address}
-                        onChange={(e) => setAddress(e.target.address)}
+                        onChange={(e) => setAddress(e.target.value)}
                     />
                 </Form.Group>
                 <Form.Group size="lg" controlId="Phone">
@@ -68,10 +68,10 @@ export default function Login() {
                         autoFocus
                         type="text"
                         value={start}
-                        onChange={(e) => setStart(e.target.start)}
+                        onChange={(e) => setStart(e.target.value)}
                     />
                 </Form.Group>
-
+               
 
                 <Button block size="lg" type="submit">
                     Show
@@ -79,14 +79,14 @@ export default function Login() {
             </Form>
 
             <BootstrapTable
-                keyField="id"
-                data={data}
-                columns={columns}
-                striped
-                hover
-                condensed
-                pagination={paginationFactory({})}
-            />
+            keyField="id"
+            data={data}
+            columns={columns}
+            striped
+            hover
+            condensed
+            pagination={paginationFactory({})}
+        />
         </div>
     );
 }
