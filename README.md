@@ -23,6 +23,9 @@ docker compose up
 1. PROJECT_ID (register an account on infura.io)
 2. PROCESS_COUNT (optional, for number of crawler proceses , default is 1) 
 
+
+### Install:
+ 
 1. Insatll mongodb 
 2. Start mongo
 2. Install nodejs
