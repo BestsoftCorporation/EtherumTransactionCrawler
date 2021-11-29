@@ -14,8 +14,8 @@ services:
       - redis
       - mongo
     environment:
-      - REDIS_URL=redis://cache
-      - PROCESS_COUNT:1
+      - PROCESS_COUNT=1
+      - PROJECT_ID="11259adf64d84c9e8c3512d279566120"
     ports:
       - "4001:4001"
   mongo:
