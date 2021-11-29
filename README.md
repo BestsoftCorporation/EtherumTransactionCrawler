@@ -16,6 +16,15 @@ Number of blocks that are need to be crawl are going to be separeted for search 
 docker compose up
 ```
 
+### RUN FRONTEND
+
+```
+cd front
+npm install
+npm start
+```
+
+
 ## Run manually:
 
 ### Change/Set .env envaroment variables:
@@ -33,6 +42,15 @@ docker compose up
 
 
 ```
+npm install
+npm start
+```
+
+### RUN FRONTEND
+
+```
+cd front
+npm install
 npm start
 ```
 

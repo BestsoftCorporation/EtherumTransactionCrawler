@@ -1,4 +1,4 @@
-# Frontend Customers app
+# Frontend
 
 1. Install dependecies
 

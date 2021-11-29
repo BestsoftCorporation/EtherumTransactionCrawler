@@ -7,22 +7,22 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 
 
 const columns = [
-  {
-      dataField: "to",
-      text: "To",
-      sort: true,
-  },
-  {
-      dataField: "from",
-      text: "From",
-      sort: true,
-  },
-  {
-      dataField: "value",
-      text: "Value",
-      sort: true,
-  },
-  
+    {
+        dataField: "to",
+        text: "To",
+        sort: true,
+    },
+    {
+        dataField: "from",
+        text: "From",
+        sort: true,
+    },
+    {
+        dataField: "value",
+        text: "Value",
+        sort: true,
+    },
+
 ];
 
 
@@ -30,14 +30,14 @@ export default function Login() {
     const [address, setAddress] = useState("");
     const [start, setStart] = useState("");
     const [data, setData] = useState([]);
-   
+
     function handleSubmit(event) {
         event.preventDefault();
         try {
 
-            axios.get('http://localhost:4001/transactionss?address='+address+'&start='+start)
+            axios.get('http://localhost:4001/transactionss?address=' + address + '&start=' + start)
                 .then(function (response) {
-                  setData(JSON.parse(JSON.stringify(response.data)));
+                    setData(JSON.parse(JSON.stringify(response.data)));
                 })
                 .catch(function (error) {
                     console.log(error)
@@ -45,7 +45,7 @@ export default function Login() {
 
 
         } catch (e) {
-            alert(e.message);
+            //alert(e.message);
         }
     }
 
@@ -71,7 +71,7 @@ export default function Login() {
                         onChange={(e) => setStart(e.target.start)}
                     />
                 </Form.Group>
-               
+
 
                 <Button block size="lg" type="submit">
                     Show
@@ -79,14 +79,14 @@ export default function Login() {
             </Form>
 
             <BootstrapTable
-            keyField="id"
-            data={data}
-            columns={columns}
-            striped
-            hover
-            condensed
-            pagination={paginationFactory({})}
-        />
+                keyField="id"
+                data={data}
+                columns={columns}
+                striped
+                hover
+                condensed
+                pagination={paginationFactory({})}
+            />
         </div>
     );
 }
