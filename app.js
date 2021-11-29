@@ -7,13 +7,20 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 
-// parse request bodies (req.body)
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET", "PUT", "POST", "DELETE", "OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+var cors = require('cors');
+app.use(cors());
 app.use(express.urlencoded({ extended: true }))
 
 app.use(methodOverride('_method'));
 
 require('./lib/boot')(app, { verbose: !module.parent });
-
 
 mongoose
   .connect(
@@ -23,7 +30,6 @@ mongoose
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
-/* istanbul ignore next */
 if (!module.parent) {
     app.listen(4001);
     console.log('Express started on port 4001');

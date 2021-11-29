@@ -15,7 +15,7 @@ services:
       - mongo
     environment:
       - PROCESS_COUNT=1
-      - PROJECT_ID="11259adf64d84c9e8c3512d279566120"
+      - PROJECT_ID=11259adf64d84c9e8c3512d279566120
     ports:
       - "4001:4001"
   mongo:
